@@ -14,7 +14,7 @@ jobs:
           - name: "[3.10][poetry]"
             target: "app"
             context: "3.10"
-            file: "poetry.Dockerfile"
+            file: "{context}/poetry.Dockerfile"
             tags: |
               jopplt/python-poetry:3.10
             build-args: |
