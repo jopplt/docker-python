@@ -13,7 +13,7 @@ jobs:
         image:
           - name: "[3.10][poetry]"
             target: "app"
-            context: 3.10
+            context: "3.10"
             file: "poetry.Dockerfile"
             tags: |
               jopplt/python-poetry:3.10
