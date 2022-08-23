@@ -10,10 +10,6 @@ ENV POETRY_VIRTUALENVS_CREATE=false
 ENV POETRY_NO_INTERACTION=1
 ENV WORKDIR_PATH="/opt/app"
 ENV PATH="$POETRY_HOME/bin:$PATH"
-RUN apk add --no-cache \
-    gcc \
-	libc-dev \
-	linux-headers
 
 FROM base AS poetry
 RUN apk add --no-cache curl
