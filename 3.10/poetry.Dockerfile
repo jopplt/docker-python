@@ -7,7 +7,6 @@ ARG POETRY_VERSION=1.1.13
 ARG POETRY_HOME="/opt/poetry"
 ARG POETRY_VIRTUALENVS_CREATE=false
 ARG POETRY_NO_INTERACTION=1
-ARG WORKDIR_PATH="/opt/app"
 
 FROM python:3.10-alpine AS base
 ENV PATH="$POETRY_HOME/bin:$PATH"
@@ -17,6 +16,7 @@ RUN apk add --no-cache curl
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 
 FROM base AS app
+ARG WORKDIR_PATH="/opt/app"
 COPY --from=poetry $POETRY_HOME $POETRY_HOME
 WORKDIR $WORKDIR_PATH
 COPY pyproject.toml .
