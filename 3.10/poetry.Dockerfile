@@ -10,9 +10,8 @@ ARG POETRY_VERSION=1.1.13
 ARG POETRY_HOME="/opt/poetry"
 ARG POETRY_VIRTUALENVS_CREATE=false
 ARG POETRY_NO_INTERACTION=1
-RUN apk add --no-cache --virtual .build-deps gcc libc-dev libffi-dev curl \
-    && curl -sSL https://install.python-poetry.org | python - \
-    && apk del .build-deps
+RUN apk add --no-cache gcc libc-dev libffi-dev curl
+RUN curl -sSL https://install.python-poetry.org | python -
 
 FROM base AS app
 ARG POETRY_HOME="/opt/poetry"
