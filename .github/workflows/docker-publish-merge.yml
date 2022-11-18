@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         image:
-          - name: "[3.10][poetry]"
+          - name: "[3.10][poetry-1.1.13]"
             target: "app"
             context: "3.10"
             file: "3.10/poetry.Dockerfile"
@@ -19,6 +19,14 @@ jobs:
               jopplt/python-poetry:3.10
             build-args: |
               POETRY_VERSION=1.1.13
+          - name: "[3.10][poetry-1.2.2]"
+            target: "app"
+            context: "3.10"
+            file: "3.10/poetry.Dockerfile"
+            tags: |
+              jopplt/python:3.10-poetry1.2.2
+            build-args: |
+              POETRY_VERSION=1.2.2
       fail-fast: true
     runs-on: ubuntu-18.04
     steps:
