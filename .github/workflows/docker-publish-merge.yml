@@ -27,6 +27,14 @@ jobs:
               jopplt/python:3.10-poetry1.2.2
             build-args: |
               POETRY_VERSION=1.2.2
+          - name: "[3.11][poetry-1.2.2]"
+            target: "app"
+            context: "3.11"
+            file: "3.11/poetry.Dockerfile"
+            tags: |
+              jopplt/python:3.11-poetry1.2.2
+            build-args: |
+              POETRY_VERSION=1.2.2
       fail-fast: true
     runs-on: ubuntu-18.04
     steps:
